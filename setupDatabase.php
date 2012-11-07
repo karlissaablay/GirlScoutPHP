@@ -35,15 +35,20 @@ else
 $query="CREATE TABLE AllTroops
 		(
 		id int(6) PRIMARY KEY NOT NULL auto_increment,
-		troopNumber varchar(6) NOT NULL,
-		leaderName varchar(30) NOT NULL,
-		leaderPhone varchar(15) NOT NULL,
-		leaderEmail varchar(30) NOT NULL,
+		troopleader varchar(30) NOT NULL,
+		troopleadernumber varchar(10) NOT NULL,
+		troopleaderemail varchar(30) NOT NULL,
+		troopnumber varchar(10) NOT NULL,
+		firstname varchar(30) NOT NULL,
+		lastname varchar(30) NOT NULL,
+		dob varchar(12) NOT NULL,
 		scoutList varchar(100) NOT NULL)";
 mysql_query($query);
 
 
-$query = "INSERT INTO AllTroops VALUES ('','Troop#','Leader Name','Leader Phone','Leader Email','Scout List')";
+$query = "INSERT INTO AllTroops VALUES ('','troopleader','troopleadernumber',
+'leaderemail','troopnumber', 'firstname', 'lastname', 'dob', 
+'Scout List')";
 mysql_query($query);
 
 
