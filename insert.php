@@ -1,18 +1,47 @@
 <?php
 include("dbinfo.inc.php");
-mysql_connect(localhost,$username,$password);
-@mysql_select_db($database) or die( "Unable to select database."); 
+$con = mysql_connect('localhost', $username,$password);
+if (!$con)
+{
+	die('Could not connect: ' . mysql_error());
+}
+mysql_select_db("GirlScouts1", $con);
 
-$query = "INSERT INTO GirlScouts VALUES
-	(
-	'',
-	'$_POST[troopNum]',
-	'$_POST[leaderN]',
-	'$_POST[leaderP]',
-	''
-	)";
-mysql_query($query);
+$query="SELECT * FROM Courses";
+$result=mysql_query($query);
 
-mysql_close();
-header("Location: index.php");
-?> 
+// recover ALL the things from this broad query
+$count=mysql_numrows($result);
+
+
+
+
+
+for($i=0; $i<2;$i++)
+{
+	if(!empty($_POST['firstname'.$i]))
+	{
+		$troopnumber = $_POST['troopnumber'];
+		$firstname = $_POST['firstname'.$i];
+		$lastname = $_POST['lastname'.$i];
+		$dob = $_POST['dob'.$i];
+		$city = $_POST['city'.$i];
+
+
+		$sql = "INSERT INTO Scouts (troopNumber, firstName,
+		lastName, dob, city)
+		VALUES ('$troopnumber','$firstname','$lastname','$dob','$city');";
+
+		if (!mysql_query($sql,$con))
+		{
+			die('Error: ' . mysql_error());
+		}
+	}
+}
+echo "record added";
+
+mysql_close($con);
+header("Location: index.php#form2");
+
+?>
+

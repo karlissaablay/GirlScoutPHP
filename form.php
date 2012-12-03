@@ -5,9 +5,10 @@ $trpLeader = $_POST['troopleader'];
 $trpLeaderNum = $_POST['troopleadernumber'];
 $trpLeaderEmail = $_POST['troopleaderemail'];
 $trpnumber = $_POST['troopnumber'];
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$dob = $_POST['dob'];
+//$firstname = $_POST['firstname'];
+//$lastname = $_POST['lastname'];
+//$dob = $_POST['dob'];
+//$city = $_POST['city'];
 
 $con = mysql_connect('localhost', $username,$password);
 
@@ -17,10 +18,10 @@ if (!$con)
 }
 mysql_select_db("GirlScouts1", $con);
 
+
 $sql = "INSERT INTO AllTroops (troopleader, troopleadernumber,
-troopleaderemail, troopnumber, firstname, lastname, dob, scoutList)
-VALUES ('$trpLeader','$trpLeaderNum','$trpLeaderEmail','$trpnumber',
-'$firstname','$lastname','$dob','$trpLeader');";
+troopleaderemail, troopnumber)
+VALUES ('$trpLeader','$trpLeaderNum','$trpLeaderEmail','$trpnumber');";
 
 if (!mysql_query($sql,$con))
 {
@@ -29,5 +30,6 @@ if (!mysql_query($sql,$con))
 echo "record added";
 
 mysql_close($con);
+header("Location: index.php#form2");
 
 ?>
