@@ -61,6 +61,15 @@ $query="CREATE TABLE InvitedTroops
 mysql_query($query);
 
 //Waitlisted Troops
+$query="CREATE TABLE Waitlist
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
 
 //Girl Scout Names
 $query="CREATE TABLE Scouts

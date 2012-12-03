@@ -1,5 +1,8 @@
 <?php
 include("dbinfo.inc.php");
+include("eventinfo.php");
+
+// Connect to mySQL and select database
 $con = mysql_connect('localhost', $username,$password);
 if (!$con)
 {
@@ -7,41 +10,76 @@ if (!$con)
 }
 mysql_select_db("GirlScouts1", $con);
 
-$query="SELECT * FROM Courses";
+// Choose table
+$query="SELECT * FROM Scouts";
 $result=mysql_query($query);
 
 // recover ALL the things from this broad query
 $count=mysql_numrows($result);
+$tempCount = 0;
 
-
-
-
-
-for($i=0; $i<2;$i++)
-{
+// Check if total amount of entries will exceed total amount
+// of scouts allowed in event.
+for($i=0; $i<30; $i++){
 	if(!empty($_POST['firstname'.$i]))
 	{
-		$troopnumber = $_POST['troopnumber'];
-		$firstname = $_POST['firstname'.$i];
-		$lastname = $_POST['lastname'.$i];
-		$dob = $_POST['dob'.$i];
-		$city = $_POST['city'.$i];
-
-
-		$sql = "INSERT INTO Scouts (troopNumber, firstName,
-		lastName, dob, city)
-		VALUES ('$troopnumber','$firstname','$lastname','$dob','$city');";
-
-		if (!mysql_query($sql,$con))
-		{
-			die('Error: ' . mysql_error());
-		}
+		$tempCount++;
 	}
 }
-echo "record added";
+
+// Check to waitlist scouts
+// If waitlist, add to waitlist
+if($tempCount > $eventMax-$count){
+	for($i=0; $i<2;$i++)
+	{
+		if(!empty($_POST['firstname'.$i]))
+		{
+			$troopnumber = $_POST['troopnumber'];
+			$firstname = $_POST['firstname'.$i];
+			$lastname = $_POST['lastname'.$i];
+			$dob = $_POST['dob'.$i];
+			$city = $_POST['city'.$i];
+
+
+			$sql = "INSERT INTO Waitlist (troopNumber, firstName,
+			lastName, dob, city)
+			VALUES ('$troopnumber','$firstname','$lastname','$dob','$city');";
+
+			if (!mysql_query($sql,$con))
+			{
+				die('Error: ' . mysql_error());
+			}
+		}
+	}
+	echo "Your total amount of scouts exceeds the max amount allowed in event. Scouts added to waitlist.";
+}
+else{
+	for($i=0; $i<2;$i++)
+	{
+		if(!empty($_POST['firstname'.$i]))
+		{
+			$troopnumber = $_POST['troopnumber'];
+			$firstname = $_POST['firstname'.$i];
+			$lastname = $_POST['lastname'.$i];
+			$dob = $_POST['dob'.$i];
+			$city = $_POST['city'.$i];
+
+
+			$sql = "INSERT INTO Scouts (troopNumber, firstName,
+			lastName, dob, city)
+			VALUES ('$troopnumber','$firstname','$lastname','$dob','$city');";
+
+			if (!mysql_query($sql,$con))
+			{
+				die('Error: ' . mysql_error());
+			}
+		}
+	}
+	echo "Scouts added to event.";
+}
 
 mysql_close($con);
-header("Location: index.php#form2");
+//header("Location: index.php#form2");
 
 ?>
 
