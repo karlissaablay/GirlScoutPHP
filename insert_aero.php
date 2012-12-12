@@ -12,7 +12,7 @@ if (!$con)
 mysql_select_db("GirlScoutsDB", $con);
 
 // Choose table
-$query="SELECT * FROM Scouts";
+$query="SELECT * FROM JuniorAerospace";
 $result=mysql_query($query);
 
 // recover ALL the things from this broad query
