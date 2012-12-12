@@ -1,5 +1,5 @@
 <?php
 $username="root";
-$password="root";
-$database="GirlScouts1";
+$password="root"; //make sure you change this to your password!!!!
+$database="GirlScoutsDB";
 ?> 

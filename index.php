@@ -1,17 +1,10 @@
 <!DOCTYPE HTML>
 <?php
-
 // run initializer to set $username, $password, $database
 include("dbinfo.inc.php");
 require_once("eventinfo.php");
-
 mysql_connect($host,$username,$password);
 @mysql_select_db($database) or die( "Unable to select database");
-$query = "SELECT * FROM Scouts";
-$result = mysql_query($query);
-// recover ALL the things from this broad query
-$count=mysql_numrows($result);
-//$counter=1;
 
 ?>
 
@@ -19,7 +12,7 @@ $count=mysql_numrows($result);
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Untitled Document</title>
+<title>Girl Scouts</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 
 <!-- Scroller Code -->
@@ -84,13 +77,13 @@ function MM_preloadImages() { //v3.0
 				<h1>Events</h1>
 			</div>
 			<div class="text">
-				<p style="color: #adbfff">Click an event you wish to sign up for.</p>
-
 				<div id="rank" style="background-image: url(images/brownies.png)">
 					<h2>Brownies</h2>
 				</div>
 
 				<table>
+					<col width="350">
+
 					<tr>
 						<td>December 1, 2012</td>
 					</tr>
@@ -125,6 +118,8 @@ function MM_preloadImages() { //v3.0
 					<h2>Junior</h2>
 				</div>
 				<table>
+					<col width="350">
+
 					<tr>
 						<td>February 18, 2012</td>
 					</tr>
@@ -154,6 +149,8 @@ function MM_preloadImages() { //v3.0
 					<h2>Cadette</h2>
 				</div>
 				<table>
+					<col width="350">
+
 					<tr>
 						<td>December 1, 2012</td>
 					</tr>
@@ -180,7 +177,7 @@ function MM_preloadImages() { //v3.0
 	<div id="form" class="panel">
 		<div class="content">
 			<div id="title" style="background-image: url(images/signup.png)">
-				<h1>Sign Up</h1>
+				<h1>Sign Up Part 1</h1>
 			</div>
 			<div class="text">
 
@@ -190,12 +187,15 @@ function MM_preloadImages() { //v3.0
 
 				<div id="right">
 					<h1 style="line-height: 20px">Troop Leader Information</h1>
-					<form name="register" action="form.php" method="post">
-						Name: <input type="text" name="troopleader"><br> Phone Number: <input
-							type="text" name="troopleadernumber"><br> Email: <input
-							type="text" name="troopleaderemail"><br> Troop Number: <input
-							type="text" name="troopnumber"><br> <input type="Submit"
-							value="Submit">
+					<form action="form.php" method="post" name="contact">
+						<input type="hidden" name="value" id="value" value="submit" />
+						Name: <input type="text" name="troopleader" id="name" /><br />
+						Email: <input type="text" name="troopleaderemail" id="email" /><br />
+						Phone Number: <input type="text" name="troopleadernumber"
+							id="number" /><br /> Troop Number: <input type="text"
+							name="troopnumber" id="trpnumber" /><br /> <input type="submit"
+							value="Submit"
+							style="border: solid; border-color: #CCCCCC; border-width: 1px;" />
 					</form>
 				</div>
 			</div>
@@ -208,42 +208,65 @@ function MM_preloadImages() { //v3.0
 	<div id="form2" class="panel">
 		<div class="content">
 			<div id="title" style="background-image: url(images/signup.png)">
-				<h1>Sign Up</h1>
+				<h1>Sign Up Part 2</h1>
 			</div>
-			<div class="text">
-				<div style="color: #f9916b">
-					<p>Enter the information of your scouts. Use as many boxes as you
-						need.</p>
-				</div>
 
-				<form action="insert.php" method="POST">
-					<table>
+			<p>Click the event you wish to sign up for.</p>
+			</br>
 
-						<tr>
-							<td>Troop Number <input type="text" size="10" name="troopnumber">
-							</td>
-						</tr>
-						<?php for($i=0; $i<2; $i++){?>
-						<tr>
-							<td>First Name <input type="text" size="10"
-								name="firstname<?php echo $i?>">
-							</td>
-							<td>Last Name <input type="text" size="10"
-								name="lastname<?php echo $i?>">
-							</td>
-							<td>Date of Birth <input type="text" size="10"
-								name="dob<?php echo $i?>">
-							</td>
-							<td>City of Resident <input type="text" size="10"
-								name="city<?php echo $i?>">
-							</td>
-						</tr>
-						</br>
-						<?php }?>
-						<td><input type="Submit" value="Submit"></td>
-					</table>
-				</form>
+			<div id="brownies">
+				<table>
+					<tr>
+						<td><div id="rank"
+								style="background-image: url(images/brownies.png)">Brownies</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+								<li><a href="compExpSignUp.php">Computer Expert</a></li>
+								<li><a href="signCompExp.php">Home Scientist</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
 			</div>
+			
+			<div id="juniors">
+				<table>
+					<tr>
+						<td><div id="rank"
+								style="background-image: url(images/juniors.png)">Brownies</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+								<li><a href="signAero.php">Aerospace</a></li>
+								<li><a href="signSciDisc.php">Science Discovery</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div id="cadettes">
+				<table>
+					<tr>
+						<td><div id="rank"
+								style="background-image: url(images/cadettes.png)">Brownies</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+								<li><a href="signAgent.php">Special Agent</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
+
 		</div>
 	</div>
 
@@ -252,11 +275,253 @@ function MM_preloadImages() { //v3.0
 		<div class="content">
 			<div id="title"
 				style="background-image: url(images/waitlist.png); margin-top: 10px;">
-				<h1>WAITLIST</h1>
 			</div>
-			<div class="text">Put waitlist stuff here.</div>
-		</div>
-	</div>
+			<div class="text">
+				<table>
+					<col width="250">
+					<div id="rank" style="background-image: url(images/brownies.png)">
+						<h2>Brownies</h2>
+					</div>
+					<tr>
+						<td>Computer Expert</td>
+						<td>Home Scientist</td>
+					</tr>
+					<tr>
+						<td>Troops Attending</td>
+						<td>Troops Attending</td>
+					</tr>
+					<tr>
+						<td><?php
+						$query = 'SELECT DISTINCT troopNumber FROM BrownieComputerExpert';
+						$result = mysql_query($query);
+						while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					   }
+					   ?>
+						</td>
+						<td><?php
+						$query = 'SELECT DISTINCT troopNumber FROM BrownieHomeScientist';
+						$result = mysql_query($query);
+						while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					   }
+					   ?>
+						</td>
+					</tr>
+
+					<tr>
+						<td>Spots Remaining</td>
+						<td>Spots Remaining</td>
+					</tr>
+					</td>
+					</tr>
+
+					<tr>
+						<td><?php
+						$query = 'SELECT firstName FROM BrownieComputerExpert';
+						$result = mysql_query($query);
+						$count= $eventMax-mysql_numrows($result);
+						echo $count;
+						?>
+						</td>
+
+						<td><?php
+						$query = 'SELECT firstName FROM BrownieHomeScientist';
+						$result = mysql_query($query);
+						$count= $eventMax-mysql_numrows($result);
+						echo $count;
+						?>
+						</td>
+					</tr>
+					<tr>
+						<td>Waitlisted</td>
+						<td>Waitlisted</td>
+					</tr>
+					<tr>
+						<td><?php
+						$query = 'SELECT DISTINCT troopNumber FROM WaitlistBrownieCompExp';
+						$result = mysql_query($query);
+						while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					  }
+					  ?>
+						</td>
+						<td><?php
+						$query = 'SELECT DISTINCT troopNumber FROM WaitlistBrownieHomeSci';
+						$result = mysql_query($query);
+						while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value. '<br>';
+						 }
+					  echo '<br>';
+}
+?>
+						</td>
+					</tr>
+					</col>
+				</table>
+				<div>
+					<div id="rank" style="background-image: url(images/juniors.png)">
+						<h2>Junior</h2>
+					</div>
+					<table>
+						<col width="250">
+						<tr>
+							<td>Aerospace</td>
+							<td>Science Discovery</td>
+						</tr>
+
+						<tr>
+							<td>Troops Attending</td>
+							<td>Troops Attending</td>
+						</tr>
+
+						<tr>
+							<td><?php
+							$query = 'SELECT DISTINCT troopNumber FROM JuniorAerospace';
+							$result = mysql_query($query);
+							while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					  }
+					  ?>
+							</td>
+							<td><?php
+							$query = 'SELECT DISTINCT troopNumber FROM JuniorScienceDiscovery';
+							$result = mysql_query($query);
+							while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+							 }
+					  }
+					  ?>
+						
+						
+						<tr>
+							<td>Spots Remaining</td>
+							<td>Spots Remaining</td>
+						</tr>
+						</td>
+						</tr>
+						<td><?php
+						$query = 'SELECT firstName FROM JuniorAerospace';
+						$result = mysql_query($query);
+						$count= $eventMax-mysql_numrows($result);
+						echo $count;
+						?>
+						</td>
+						<td><?php
+						$query = 'SELECT firstName FROM JuniorScienceDiscovery';
+						$result = mysql_query($query);
+						$count= $eventMax-mysql_numrows($result);
+						echo $count;
+						?>
+						</td>
+						<tr>
+							<td><?php
+							$query = 'SELECT COUNT(firstName) FROM JuniorScienceDiscovery';
+							$result = $eventMax-mysql_query($query);
+							while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					  }
+					  ?>
+							</td>
+						</tr>
+						<tr>
+							<td>Waitlisted</td>
+							<td>Waitlisted</td>
+						</tr>
+
+						<tr>
+							<td><?php
+							$query = 'SELECT DISTINCT troopNumber FROM WaitlistJuniorAero';
+							$result = mysql_query($query);
+							while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					  }
+					  ?>
+							</td>
+							<td><?php
+							$query = 'SELECT DISTINCT troopNumber FROM WaitlistJuniorSciDisc';
+							$result = mysql_query($query);
+							while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					  }
+					  ?>
+							</td>
+						</tr>
+					</table>
+					<div id="rank" style="background-image: url(images/cadettes.png)">
+						<h2>Cadette</h2>
+					</div>
+					<table>
+						<col width="250">
+						<tr>
+							<td>Special Agent</td>
+						</tr>
+
+						<tr>
+							<td>Troops Attending</td>
+						</tr>
+
+						<tr>
+							<td><?php
+							$query = 'SELECT DISTINCT troopNumber FROM CadetteSpecialAgent';
+							$result = mysql_query($query);
+							while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					  }
+					  ?>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Spots Remaining</td>
+						</tr>
+						<tr>
+							<td><?php
+							$query = 'SELECT firstName FROM CadetteSpecialAgent';
+							$result = mysql_query($query);
+							$count= $eventMax-mysql_numrows($result);
+							echo $count;
+							?>
+							</td>
+						</tr>
+						<tr>
+							<td>Waitlisted</td>
+						</tr>
+
+						<tr>
+							<td><?php
+							$query = 'SELECT DISTINCT troopNumber FROM WaitlistJCadetSpecAgnt';
+							$result = mysql_query($query);
+							while($row = mysql_fetch_assoc($result)){
+					foreach($row as $key => $value){
+						echo $key.': '.$value.'<br>';
+						 }
+					  }
+					  ?>
+							</td>
+						</tr>
+						</col>
+					</table>
+				</div>
+			</div>
 
 </body>
 </html>

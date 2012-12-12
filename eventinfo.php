@@ -1,5 +1,4 @@
 <?php
 
-$eventMax = 3;
-
+$eventMax = 10;
 ?>

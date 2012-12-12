@@ -60,17 +60,6 @@ $query="CREATE TABLE InvitedTroops
 		scoutList varchar(100) NOT NULL)";
 mysql_query($query);
 
-//Waitlisted Troops
-$query="CREATE TABLE Waitlist
-		(
-		id int(6) PRIMARY KEY NOT NULL auto_increment,
-		troopNumber varchar(6) NOT NULL,
-		firstName varchar(20) NOT NULL,
-		lastName varchar(20) NOT NULL,
-		dob varchar(12) NOT NULL,
-		city varchar(20) NOT NULL)";
-mysql_query($query);
-
 //Girl Scout Names
 $query="CREATE TABLE Scouts
 		(
@@ -81,7 +70,113 @@ $query="CREATE TABLE Scouts
 		dob varchar(12) NOT NULL,
 		city varchar(20) NOT NULL)";
 mysql_query($query);
-		
+
+//Waitlisted Troops
+$query="CREATE TABLE WaitlistBrownieCompExp
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+$query="CREATE TABLE WaitlistBrownieHomeSci
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+$query="CREATE TABLE WaitlistJuniorAero
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+$query="CREATE TABLE WaitlistJuniorSciDisc
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+$query="CREATE TABLE WaitlistCadetteSpecAgnt
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+//Brownie Event 1 (12/1)
+$query="CREATE TABLE BrownieComputerExpert
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+//Brownie Event 2 (12/1)
+$query="CREATE TABLE BrownieHomeScientist
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+//Cadette Event 1 (12/1)
+$query="CREATE TABLE CadetteSpecialAgent
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+//Junior Event 1 (2/18)
+$query="CREATE TABLE JuniorAerospace
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
+//Junior Event 2 (2/18)
+$query="CREATE TABLE JuniorScienceDiscovery
+		(
+		id int(6) PRIMARY KEY NOT NULL auto_increment,
+		troopNumber varchar(6) NOT NULL,
+		firstName varchar(20) NOT NULL,
+		lastName varchar(20) NOT NULL,
+		dob varchar(12) NOT NULL,
+		city varchar(20) NOT NULL)";
+mysql_query($query);
+
 
 mysql_close();
 ?>

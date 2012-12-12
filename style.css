@@ -1,49 +1,53 @@
 @charset "UTF-8";
+
 body {
-	background-color:#FFF;
-	width: 4000px; 
-	overflow:hidden; 
+	background-color: #FFF;
+	width: 4000px;
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
-	font-family:"Arial", Gadget, sans-serif;
+	font-family: "Arial", Gadget, sans-serif;
 }
-	
-.panel{ 
+
+.panel {
 	float: left;
 	display: block;
 	height: 1500px;
 	width: 2000px;
 	position: relative;
 }
+
 #title {
 	background-repeat: no-repeat;
 	height: 97px;
 	width: 345px;
 	position: relative;
-	margin-left:60px;
+	margin-left: 60px;
 }
-#title h1{
+
+#title h1 {
 	text-indent: -999em;
 	height: 0px;
 	width: 0px;
 }
+
 ul#banner {
-	z-index:999;
-	position:fixed;
+	z-index: 999;
+	position: fixed;
 	font-family: "Arial Black", Gadget, sans-serif;
 	font-size: 18px;
 }
 
-ul#banner li { 
-	display: inline; 
-}   
-
-#home{
-	background-image:url(images/homeBG.png);
-	background-repeat:no-repeat;	
+ul#banner li {
+	display: inline;
 }
 
-#intro{
+#home {
+	background-image: url(images/homeBG.png);
+	background-repeat: no-repeat;
+}
+
+#intro {
 	position: absolute;
 	width: 415px;
 	height: 271px;
@@ -51,85 +55,146 @@ ul#banner li {
 	top: 229px;
 }
 
-#events{
-	background-image:url(images/eventsBG.png);
-	background-repeat:no-repeat;
+#events {
+	background-image: url(images/eventsBG.png);
+	background-repeat: no-repeat;
 }
 
-#form{
-	background-image:url(images/formBG.png);
-	background-repeat:no-repeat;
-}
-#form2{
-	background-image:url(images/form2BG.png);
-	background-repeat:no-repeat;
-}	
-#waitlist{
-	background-image:url(images/waitlistBG.png);
-	background-repeat:no-repeat;
+#form {
+	background-image: url(images/formBG.png);
+	background-repeat: no-repeat;
 }
 
-.content
-{
-	margin-top:30px;
-	margin-left:110px;
-	width:860px;
-	height:700px;
+#form2 {
+	background-image: url(images/form2BG.png);
+	background-repeat: no-repeat;
 }
-.text{
-	margin-left:50px;
+
+#form2 p {
+	float: left;
+	margin-top: 25px;
+	margin-left: 85px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #F9916B;
+}
+
+#form2 ul {
+	list-style-type:none;
+	padding-left:15px;
+}
+#form2 ul li{
+	padding-top:10px;
+}
+
+#form2 #brownies {
+	float: left;
+	width: 200px;
+	position: absolute;
+	margin-top: 80px;
+	margin-left: 85px;
+}
+
+#form2 #juniors {
+	float: left;
+	width: 200px;
+	position: absolute;
+	margin-top: 80px;
+	margin-left: 360px;
+}
+
+#form2 #cadettes {
+	float: left;
+	width: 200px;
+	position: absolute;
+	margin-top: 80px;
+	margin-left: 630px;
+}
+
+#form3 {
+	background-image: url(images/form3BG.png);
+	background-repeat: no-repeat;
+}
+
+#waitlist {
+	background-image: url(images/waitlistBG.png);
+	background-repeat: no-repeat;
+}
+
+.content {
+	margin-top: 30px;
+	margin-left: 110px;
+	width: 860px;
+	height: 700px;
+}
+
+.text {
+	margin-left: 50px;
 	margin-top: 20px;
-	padding-left:30px;
-	width:735px;
-	height:420px;	
-	overflow:scroll;
+	padding-left: 30px;
+	width: 735px;
+	height: 420px;
+	overflow: scroll;
 }
-.text h2{
+
+.text h2 {
 	text-indent: -999em;
 	height: 0px;
 	width: 0px;
 }
-.text p{
-	font-weight:bold;	
+
+.text p {
+	font-weight: bold;
 }
-#link{
-	position:absolute;
+
+#link {
+	position: absolute;
 	left: 320px;
 	top: 425px;
 	font-family: "Arial Black", Gadget, sans-serif;
 	font-size: 18px;
 }
-a:link{
+
+a:link {
 	text-decoration: none;
+	color: #04a749;
 }
-a:visited{
-	color:#04a749;
+
+a:visited {
+	color: #04a749;
 }
-a:active{
-	color:#04a749;
+
+a:active {
+	color: #04a749;
 }
-a:hover{
-	color:#04a749;
+
+a:hover {
+	color: #03662d;
 }
-#rank{
+
+#rank {
 	background-repeat: no-repeat;
 	width: 107px;
 	height: 45px;
 	position: relative;
 	font-size: 12px;
+	text-indent: -999em;
 }
-#right{
-	position:relative;
-	float:right;
-	margin-top:45px;
+
+#right {
+	position: relative;
+	float: right;
+	margin-top: 45px;
 	line-height: 35px;
 	font-family: "Arial Black", Gadget, sans-serif;
 }
-#left{
-	position:relative;
-	float:left;
-	margin-top:125px;
-	width:170px;
+
+#left {
+	position: relative;
+	float: left;
+	margin-top: 125px;
+	width: 170px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: bold;
