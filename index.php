@@ -42,18 +42,21 @@ function MM_preloadImages() { //v3.0
 </head>
 <body>
 
+	
+
 	<!-- HOME -->
 	<div id="home" class="panel">
-		<ul id="banner">
-			<li><a href="#home" style="color: #ffa600">To Home</a>
-			</li>
-			<li><a href="#events" style="color: #f97015">To Events</a>
-			</li>
-			<li><a href="#form" style="color: #df2a30">To Form</a></li>
-			<li><a href="#form2" style="color: #df2a30">To Form PG.2</a></li>
-			<li><a href="#waitlist" style="color: #8c2c8f">To Waitlist</a>
-			</li>
-		</ul>
+	
+	<ul id="banner">
+		<li><a href="#home" style="color: #ffa600">To Home</a>
+		</li>
+		<li><a href="#events" style="color: #04a749">To Events</a>
+		</li>
+		<li><a href="#form" style="color: #df2a30">To Form</a></li>
+		<li><a href="#waitlist" style="color: #8c2c8f">To Waitlist</a>
+		</li>
+	</ul>
+
 
 		<div id="intro">
 			<b>Mission: To enlighten young women of opportunities in the fields
@@ -224,14 +227,14 @@ function MM_preloadImages() { //v3.0
 					<tr>
 						<td>
 							<ul>
-								<li><a href="compExpSignUp.php">Computer Expert</a></li>
-								<li><a href="signCompExp.php">Home Scientist</a></li>
+								<li><a href="signCompExp.php">Computer Expert</a></li>
+								<li><a href="signHomeSci.php">Home Scientist</a></li>
 							</ul>
 						</td>
 					</tr>
 				</table>
 			</div>
-			
+
 			<div id="juniors">
 				<table>
 					<tr>
@@ -249,7 +252,7 @@ function MM_preloadImages() { //v3.0
 					</tr>
 				</table>
 			</div>
-			
+
 			<div id="cadettes">
 				<table>
 					<tr>

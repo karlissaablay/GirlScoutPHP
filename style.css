@@ -31,15 +31,22 @@ body {
 	width: 0px;
 }
 
+#banner {
+	position:fixed;
+	padding-left:1150px;
+	z-index:999;
+	padding-top: 10px;
+	text-align:right;
+}
+
 ul#banner {
-	z-index: 999;
-	position: fixed;
 	font-family: "Arial Black", Gadget, sans-serif;
 	font-size: 18px;
 }
 
-ul#banner li {
-	display: inline;
+ul#banner li { /*display: inline;*/
+	padding-top: 10px;
+	list-style-type: none;
 }
 
 #home {
@@ -81,11 +88,12 @@ ul#banner li {
 }
 
 #form2 ul {
-	list-style-type:none;
-	padding-left:15px;
+	list-style-type: none;
+	padding-left: 15px;
 }
-#form2 ul li{
-	padding-top:10px;
+
+#form2 ul li {
+	padding-top: 10px;
 }
 
 #form2 #brownies {
